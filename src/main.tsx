@@ -1,6 +1,7 @@
 import { StrictMode, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router";
+import { Analytics } from "@vercel/analytics/react";
 import "./index.css";
 import App from "./App";
 import Join from "./pages/Join";
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<App />} />
         <Route path="/join" element={<Join />} />
       </Routes>
+      <Analytics />
     </BrowserRouter>
   </StrictMode>,
 );
