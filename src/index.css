@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #ffffff;
+  --alt: #f1f5f2;
+  --card: #ffffff;
+  --ink: #12281f;
+  --muted: #56665f;
+  --line: #dfe3da;
+  --brand: #1d5a48;
+  --brand-ink: #ffffff;
+  --warn: #f0a030;
+  --footer: #12281f;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-alt: var(--alt);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-warn: var(--warn);
+  --color-footer: var(--footer);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Figtree", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg bg-brand px-6 py-3 font-semibold text-brand-ink transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-brand;
+  }
+  /* Turns a single-colour transparent logo white for the dark footer */
+  .footer-logo {
+    filter: brightness(0) invert(1);
+  }
+}
